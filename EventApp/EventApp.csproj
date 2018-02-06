@@ -1,0 +1,103 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F6501008-334F-4E78-9623-C96A99AC5276}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EventApp</RootNamespace>
+    <AssemblyName>EventApp</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetOfficeVersion>16.1</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
+    <MinimumOfficeToolsVersion>12.2</MinimumOfficeToolsVersion>
+    <IncludeAssemblyInPackage>False</IncludeAssemblyInPackage>
+    <ProjectMode>SharePointApp</ProjectMode>
+    <AppFeaturePartId>{ce0cc68d-c5dd-4a8c-9a5b-df7724188394}</AppFeaturePartId>
+    <WspPartId>{6b5822e7-9448-41ae-b4f8-490bf8eff507}</WspPartId>
+    <WorkflowPartId>{ea327ff5-fa5e-4d42-a520-db9c88897a09}</WorkflowPartId>
+    <CspkgPartId>{ced7911e-cad4-40b9-ba3e-ad71ff84cf54}</CspkgPartId>
+    <SqlPackagePartId>{7d63abbe-eb45-4242-a799-ec49f1fbf3c4}</SqlPackagePartId>
+    <ActivePublishProfile>psaremoteevent - Web Deploy</ActivePublishProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="AppIcon.png">
+      <OpcRelationship>manifest-icon</OpcRelationship>
+    </Content>
+    <Content Include="Features\Feature1\Feature1.Template.xml">
+      <DependentUpon>Feature1.feature</DependentUpon>
+    </Content>
+    <Content Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </Content>
+    <Content Include="Receiver\Elements.xml" />
+    <Content Include="TestList\Elements.xml" />
+    <Content Include="TestList\Schema.xml" />
+    <Content Include="TestList\TestListInstance\Elements.xml" />
+    <Content Include="TestList\TestListInstance\RemoteEventReceiver1\Elements.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppManifestFile Include="AppManifest.xml">
+      <SubType>Designer</SubType>
+    </AppManifestFile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EventAppWeb\EventAppWeb.csproj">
+      <Project>{687D5203-964E-4C75-A62A-AB4D42F31E70}</Project>
+      <Name>EventAppWeb</Name>
+      <Private>True</Private>
+      <RoleType>Web</RoleType>
+      <OutputItemType>SharePointWebProjectOutput</OutputItemType>
+      <RoleName>EventAppWeb</RoleName>
+      <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Features\Feature1\Feature1.feature">
+      <FeatureId>{ee77597f-b41b-4b4a-a3ad-07c079fcd49d}</FeatureId>
+    </None>
+    <None Include="Package\Package.package">
+      <PackageId>{b165f2f9-ee6b-46e9-942c-c85bcf165bfe}</PackageId>
+    </None>
+    <None Include="Receiver\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{4ed69e1c-7d09-40cc-85ca-92a3cb6585ad}</SharePointProjectItemId>
+    </None>
+    <None Include="TestList\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{639ead99-acb6-455c-b8ff-ee9cfb279d3e}</SharePointProjectItemId>
+    </None>
+    <None Include="TestList\TestListInstance\RemoteEventReceiver1\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{2bd9538a-1800-4161-b30c-ea206cb4bec2}</SharePointProjectItemId>
+    </None>
+    <None Include="TestList\TestListInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{6d4ceffe-b2e0-42d9-8d00-436835f02398}</SharePointProjectItemId>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>

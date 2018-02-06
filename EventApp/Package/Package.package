@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="3e675ee0-e718-43a0-a533-343178fa6d9d" solutionId="3e675ee0-e718-43a0-a533-343178fa6d9d" resetWebServer="false" sharePointProductVersion="15.0" name="EventApp" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="ee77597f-b41b-4b4a-a3ad-07c079fcd49d" />
+  </features>
+</package>
